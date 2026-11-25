@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สั่งซื้อสินค้า | มาม่า</title>
+  <meta name="description" content="กรอกข้อมูลเพื่อสั่งซื้อบะหมี่กึ่งสำเร็จรูป">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* สไตล์เฉพาะหน้าสั่งซื้อ (ส่วนที่ style.css กลางยังไม่มี) */
+    .site-footer p { margin: 0; }
+
+    .page-title {
+      font-family: "Playfair Display", "Noto Serif Thai", Georgia, serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 400;
+    }
+
+    .order-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .order-box { padding: var(--space-lg) var(--space-md); }
+
+    .required { color: var(--color-red); }
+
+    .form-hint {
+      margin: var(--space-xs) 0 0;
+      font-size: 0.8rem;
+    }
+
+    .order-back {
+      margin: var(--space-md) 0 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      .order-box { padding: var(--space-md) var(--space-sm); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">มาม่า</a>
+      <nav class="nav" aria-label="เมนูหลัก">
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html">สินค้า</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="section__head">
+          <span class="eyebrow">Order</span>
+          <h1 class="page-title text-center title-rule">สั่งซื้อสินค้า</h1>
+          <p>กรอกข้อมูลด้านล่าง ทางร้านจะติดต่อกลับตามช่องทางที่คุณให้ไว้</p>
+        </div>
+
+        <div class="order-wrap">
+          <div class="order-box">
+            <form id="orderForm">
+
+              <div class="form-group">
+                <label for="customerName">ชื่อลูกค้า <span class="required">*</span></label>
+                <input type="text" id="customerName" name="customerName" autocomplete="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact">เบอร์โทร / Line <span class="required">*</span></label>
+                <input type="text" id="contact" name="contact" autocomplete="tel" required>
+              </div>
+
+              <div class="form-group">
+                <label for="items">รายการสินค้า <span class="required">*</span></label>
+                <input type="text" id="items" name="items" required>
+                <p class="form-hint">ระบบเติมสินค้าที่คุณเลือกให้อัตโนมัติ แก้ไขหรือเพิ่มรายการได้</p>
+              </div>
+
+              <div class="form-group">
+                <label for="total">จำนวนเงินรวม (บาท) <span class="required">*</span></label>
+                <input type="number" id="total" name="total" inputmode="decimal" min="0" step="any" required>
+              </div>
+
+              <div class="form-group">
+                <label for="note">หมายเหตุ</label>
+                <textarea id="note" name="note"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--block">ยืนยันสั่งซื้อ</button>
+
+            </form>
+          </div>
+
+          <p class="order-back"><a href="product.html">← เลือกสินค้าอื่นเพิ่มเติม</a></p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© 2026 มาม่า สงวนลิขสิทธิ์</p>
+      <p><a href="index.html">กลับหน้าแรก</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

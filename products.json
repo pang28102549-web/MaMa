@@ -1,0 +1,42 @@
+[
+  {
+    "id": "mama-tom-yum-shrimp",
+    "name": "มาม่าต้มยำกุ้ง",
+    "flavor": "tom-yum-shrimp",
+    "brand": "mama",
+    "size": "60g",
+    "price": 7,
+    "image": "images/tom-yum-shrimp.jpg",
+    "description": "รสต้มยำกุ้งเข้มข้น หอมสมุนไพร เปรี้ยวเผ็ดกลมกล่อมแบบต้นตำรับ"
+  },
+  {
+    "id": "mama-minced-pork",
+    "name": "มาม่าหมูสับ",
+    "flavor": "minced-pork",
+    "brand": "mama",
+    "size": "60g",
+    "price": 7,
+    "image": "images/minced-pork.jpg",
+    "description": "น้ำซุปหมูสับรสนุ่มละมุน หอมกลิ่นกระเทียมเจียว ทานง่ายได้ทุกวัน"
+  },
+  {
+    "id": "waiwai-tom-yum",
+    "name": "ไวไวต้มยำ",
+    "flavor": "tom-yum",
+    "brand": "waiwai",
+    "size": "60g",
+    "price": 7,
+    "image": "images/waiwai-tom-yum.jpg",
+    "description": "เส้นเหนียวนุ่ม น้ำซุปต้มยำรสจัดจ้าน เปรี้ยวนำเผ็ดตาม หอมมะนาวและตะไคร้"
+  },
+  {
+    "id": "yumyum-suki",
+    "name": "ยำยำสุกี้",
+    "flavor": "suki",
+    "brand": "yumyum",
+    "size": "60g",
+    "price": 7,
+    "image": "images/yumyum-suki.jpg",
+    "description": "รสสุกี้สไตล์น้ำข้น หวานเค็มลงตัว เหมาะกับทั้งแบบน้ำและแบบแห้ง"
+  }
+]

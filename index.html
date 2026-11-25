@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>มาม่า | รวมครบทุกรสชาติระดับตำนาน</title>
+  <meta name="description" content="บะหมี่กึ่งสำเร็จรูปรวม 4 รสชาติยอดนิยม มาม่า ไวไว ยำยำ อร่อยง่าย สบายกระเป๋า">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* สไตล์เฉพาะหน้าแรก (ส่วนที่ style.css กลางยังไม่มี) */
+    .nav a[aria-current="page"] { color: var(--color-red); }
+    .site-footer p { margin: 0; }
+
+    /* Hero เต็มหน้าจอแรก */
+    .hero--full {
+      display: flex;
+      align-items: center;
+      min-height: calc(100vh - 72px);
+      min-height: calc(100svh - 72px);
+      padding: var(--space-xl) 0;
+    }
+    .hero--full .hero__inner { width: 100%; }
+
+    .hero__title {
+      font-family: "Playfair Display", "Noto Serif Thai", Georgia, serif;
+      font-size: clamp(1.9rem, 4.2vw, 3.1rem);
+      font-weight: 400;
+      line-height: 1.55;
+      text-wrap: balance;
+    }
+
+    /* พื้นที่ภาพ Flat lay: ถ้ายังไม่มีไฟล์ภาพ จะแสดงเป็นพื้นสีครีมเรียบๆ แทน */
+    .hero__visual {
+      height: min(60vh, 520px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: var(--color-butter) url("images/hero-flatlay.jpg") center / cover no-repeat;
+    }
+
+    /* การ์ดรสชาติ */
+    .flavor-card {
+      display: flex;
+      flex-direction: column;
+      padding: var(--space-lg) var(--space-md);
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .flavor-card:hover {
+      border-color: var(--color-red);
+      transform: translateY(-4px);
+    }
+    .flavor-card__en {
+      margin-bottom: var(--space-xs);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .flavor-card h3 { margin-bottom: var(--space-md); }
+    .flavor-card p { flex: 1; font-size: 0.92rem; line-height: 1.8; }
+    .flavor-card__more {
+      margin-top: var(--space-sm);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      color: var(--color-red);
+    }
+
+    @media (max-width: 768px) {
+      .hero--full {
+        min-height: calc(100vh - 64px);
+        min-height: calc(100svh - 64px);
+        padding: var(--space-lg) 0;
+      }
+      .hero__visual { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">มาม่า</a>
+      <nav class="nav" aria-label="เมนูหลัก">
+        <a href="index.html" aria-current="page">หน้าแรก</a>
+        <a href="product.html">สินค้า</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero hero--full">
+      <div class="container hero__inner">
+        <div>
+          <span class="eyebrow">MAMA · Instant Noodles</span>
+          <h1 class="hero__title">รวมครบทุกรสชาติระดับตำนาน อร่อยง่าย สบายกระเป๋า จบครบในซองเดียว</h1>
+          <div class="hero__actions">
+            <a class="btn btn--outline" href="product.html">ดูสินค้าทั้งหมด</a>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- 4 รสชาติยอดนิยม -->
+    <section class="section" id="flavors">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Popular Flavors</span>
+          <h2 class="text-center title-rule">4 รสชาติยอดนิยม</h2>
+        </div>
+
+        <div class="product-grid">
+
+          <a class="flavor-card flavor-tom-yum-shrimp" href="product.html?flavor=tom-yum-shrimp">
+            <span class="flavor-card__en">Tom Yum Kung</span>
+            <h3 class="flavor-underline">มาม่ารสต้มยำกุ้ง</h3>
+            <p>สัมผัสความจัดจ้านของน้ำซุปต้มยำกุ้งแท้ๆ ที่ทั้งเปรี้ยว เผ็ด และหอมกลิ่นสมุนไพรถึงเครื่อง ผสานเข้ากับเส้นบะหมี่เหนียวนุ่มที่เป็นเอกลักษณ์</p>
+            <span class="flavor-card__more">ดูสินค้า →</span>
+          </a>
+
+          <a class="flavor-card flavor-minced-pork" href="product.html?flavor=minced-pork">
+            <span class="flavor-card__en">Minced Pork</span>
+            <h3 class="flavor-underline">มาม่ารสหมูสับ</h3>
+            <p>ความอร่อยระดับคลาสสิกที่ครองใจคนทุกวัย ด้วยน้ำซุปหมูสับรสกลมกล่อม หอมกลิ่นกระเทียมเจียว ซดคล่องคอ กินง่ายได้ทุกมื้อ</p>
+            <span class="flavor-card__more">ดูสินค้า →</span>
+          </a>
+
+          <a class="flavor-card flavor-tom-yum" href="product.html?flavor=tom-yum">
+            <span class="flavor-card__en">Wai Wai Tom Yum</span>
+            <h3 class="flavor-underline">ไวไวรสต้มยำ</h3>
+            <p>เอาใจสายแซ่บด้วยน้ำซุปต้มยำรสเปรี้ยวเผ็ดจี๊ดจ๊าด ถึงใจในทุกคำ มาพร้อมเส้นเหนียวนุ่มไม่อืดง่าย จะต้มหรือกินดิบก็อร่อยลงตัว</p>
+            <span class="flavor-card__more">ดูสินค้า →</span>
+          </a>
+
+          <a class="flavor-card flavor-suki" href="product.html?flavor=suki">
+            <span class="flavor-card__en">Yum Yum Suki</span>
+            <h3 class="flavor-underline">ยำยำรสสุกี้</h3>
+            <p>เปิดประสบการณ์ความอร่อยสไตล์สุกี้หม้อไฟ กับน้ำซุปรสกลมกล่อม หอมหวานเผ็ดกำลังดี ให้รสชาติละมุนลิ้นเหมือนนั่งกินที่ร้าน</p>
+            <span class="flavor-card__more">ดูสินค้า →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© 2026 มาม่า สงวนลิขสิทธิ์</p>
+      <p><a href="product.html">สินค้าทั้งหมด</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

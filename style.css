@@ -1,0 +1,525 @@
+/* ==========================================================
+   Premium Minimal Theme — Instant Noodle Landing Page
+   โทน: ขาว-ครีม-เหลืองอ่อน | accent: แดงเข้ม + ส้มอ่อน
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600&display=swap");
+
+/* ---------- Design Tokens ---------- */
+:root {
+  /* พื้นหลัง */
+  --color-white: #ffffff;
+  --color-cream: #fbf7ef;
+  --color-butter: #fff6dc;
+
+  /* ตัวอักษร */
+  --color-text: #2b2522;
+  --color-text-muted: #7a716a;
+
+  /* Accent */
+  --color-red: #8b1e1e;
+  --color-red-dark: #6e1616;
+  --color-orange: #e8935a;
+
+  /* เส้นขอบ */
+  --color-border: #e6e1d9;
+
+  /* สีประจำรสชาติ (ใช้แตะเล็กน้อยเท่านั้น) */
+  --flavor-tom-yum-shrimp: #d9531e; /* ส้มแดง */
+  --flavor-minced-pork: #d4a017;    /* เหลืองทอง */
+  --flavor-tom-yum: #8db600;        /* เขียวมะนาว */
+  --flavor-suki: #e07a7a;           /* แดงอ่อน */
+
+  /* Typography */
+  --font-sans: "Noto Sans Thai", "Sarabun", system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+  --space-2xl: 8rem;
+
+  /* อื่นๆ */
+  --radius: 4px;
+  --container: 1120px;
+  --transition: 0.25s ease;
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--color-text);
+  background: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-red);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--space-sm);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 300; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 400; }
+h3 { font-size: 1.2rem; }
+
+p {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+/* เส้นขีดสั้นใต้หัวข้อ */
+.title-rule::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  margin-top: var(--space-sm);
+  background: var(--color-red);
+}
+
+.text-center { text-align: center; }
+.text-center.title-rule::after { margin-left: auto; margin-right: auto; }
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-xl) 0;
+}
+
+.section--white { background: var(--color-white); }
+.section--butter { background: var(--color-butter); }
+
+.section__head {
+  max-width: 640px;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+}
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(251, 247, 239, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-red);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.nav a {
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.nav a:hover { color: var(--color-red); }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: var(--space-2xl) 0 var(--space-xl);
+  background: linear-gradient(180deg, var(--color-butter) 0%, var(--color-cream) 100%);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero p {
+  max-width: 480px;
+  font-size: 1.05rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid var(--color-red);
+  border-radius: var(--radius);
+  background: var(--color-red);
+  color: var(--color-white);
+  transition: background var(--transition), color var(--transition),
+    border-color var(--transition);
+}
+
+.btn:hover {
+  background: var(--color-red-dark);
+  border-color: var(--color-red-dark);
+  color: var(--color-white);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-red);
+}
+
+.btn--outline:hover {
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--ghost:hover {
+  background: transparent;
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.btn--block { display: block; width: 100%; }
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Product Grid & Card ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.product-card:hover {
+  border-color: var(--color-red);
+  transform: translateY(-4px);
+}
+
+.product-card__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  padding: var(--space-md);
+  background: var(--color-cream);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-md);
+}
+
+.product-card__name {
+  margin-bottom: var(--space-xs);
+  font-size: 1.1rem;
+}
+
+.product-card__desc {
+  flex: 1;
+  margin-bottom: var(--space-sm);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.product-card__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.product-card__size {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.product-card__price {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-red);
+}
+
+/* ---------- Flavor Accent (แตะเบาๆ เฉพาะจุดเล็กๆ) ---------- */
+/* ใช้ได้ทั้ง class .flavor-xxx และ attribute data-flavor="xxx" ที่ element แม่ */
+.flavor-tom-yum-shrimp, [data-flavor="tom-yum-shrimp"] { --flavor-color: var(--flavor-tom-yum-shrimp); }
+.flavor-minced-pork,    [data-flavor="minced-pork"]    { --flavor-color: var(--flavor-minced-pork); }
+.flavor-tom-yum,        [data-flavor="tom-yum"]        { --flavor-color: var(--flavor-tom-yum); }
+.flavor-suki,           [data-flavor="suki"]           { --flavor-color: var(--flavor-suki); }
+
+/* ป้ายชื่อรสชาติ: จุดสี + ตัวอักษรสีเทา */
+.flavor-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-xs);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.flavor-tag::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--flavor-color, var(--color-border));
+}
+
+/* เส้นใต้หัวข้อสั้นๆ สีรสชาติ */
+.flavor-underline::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin-top: var(--space-xs);
+  background: var(--flavor-color, var(--color-red));
+}
+
+/* จุดไอคอนเล็กๆ ใช้เดี่ยวๆ ได้ */
+.flavor-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--flavor-color, var(--color-border));
+}
+
+/* ---------- Feature / Info blocks ---------- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.feature {
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.feature h3 { color: var(--color-red); }
+
+/* ---------- Forms ---------- */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-red);
+}
+
+textarea { min-height: 120px; resize: vertical; }
+
+/* ---------- Cart / Order summary ---------- */
+.order-box {
+  padding: var(--space-md);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.95rem;
+}
+
+.order-row:last-child { border-bottom: none; }
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-red);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-red);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: var(--space-lg) 0;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero__inner { gap: var(--space-lg); }
+}
+
+@media (max-width: 768px) {
+  .section { padding: var(--space-lg) 0; }
+  .hero { padding: var(--space-xl) 0 var(--space-lg); }
+
+  .hero__inner,
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__inner { gap: var(--space-md); }
+  .features { gap: var(--space-md); }
+
+  .nav { gap: var(--space-sm); }
+  .site-header__inner { min-height: 64px; }
+
+  .site-footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 var(--space-sm); }
+  .product-grid { grid-template-columns: 1fr; }
+  .btn { width: 100%; }
+  .hero__actions { flex-direction: column; }
+}

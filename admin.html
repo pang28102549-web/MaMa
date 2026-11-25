@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>รายการคำสั่งซื้อ | มาม่า</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* สไตล์เฉพาะหน้าแอดมิน (ส่วนที่ style.css กลางยังไม่มี) */
+    .site-footer p { margin: 0; }
+
+    .page-title {
+      font-family: "Playfair Display", "Noto Serif Thai", Georgia, serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 400;
+    }
+
+    /* ตารางคำสั่งซื้อ */
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+    }
+
+    .orders-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    .orders-table th {
+      padding: var(--space-sm);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-align: left;
+      white-space: nowrap;
+      color: var(--color-text-muted);
+      border-bottom: 1px solid var(--color-red);
+    }
+
+    .orders-table td {
+      padding: var(--space-sm);
+      vertical-align: top;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .orders-table tr:last-child td { border-bottom: none; }
+    .orders-table td:first-child { white-space: nowrap; }
+
+    /* มือถือ: แปลงแต่ละแถวเป็นการ์ด ใช้ data-label ที่ script.js ใส่ไว้ในแต่ละช่อง */
+    @media (max-width: 768px) {
+      .table-wrap {
+        overflow: visible;
+        background: none;
+        border: none;
+      }
+
+      .orders-table,
+      .orders-table tbody,
+      .orders-table tr,
+      .orders-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .orders-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+      }
+
+      .orders-table tr {
+        margin-bottom: var(--space-sm);
+        padding: var(--space-xs) var(--space-sm);
+        background: var(--color-white);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius);
+      }
+
+      .orders-table td {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--space-sm);
+        padding: 0.45rem 0;
+        text-align: right;
+        word-break: break-word;
+        border-bottom: none;
+      }
+
+      .orders-table td:first-child { white-space: normal; }
+
+      .orders-table td[data-label]::before {
+        content: attr(data-label);
+        flex: 0 0 38%;
+        text-align: left;
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">มาม่า</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="section__head">
+          <span class="eyebrow">Admin</span>
+          <h1 class="page-title text-center title-rule">รายการคำสั่งซื้อ</h1>
+          <p>เรียงจากรายการล่าสุดขึ้นก่อน</p>
+        </div>
+
+        <!-- script.js เติมแถวข้อมูลลงใน tbody ให้เอง -->
+        <div class="table-wrap">
+          <table id="ordersTable" class="orders-table">
+            <thead>
+              <tr>
+                <th scope="col">วันเวลา</th>
+                <th scope="col">ชื่อลูกค้า</th>
+                <th scope="col">เบอร์โทร/Line</th>
+                <th scope="col">รายการสินค้า</th>
+                <th scope="col">จำนวนเงินรวม</th>
+                <th scope="col">หมายเหตุ</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© 2026 มาม่า สงวนลิขสิทธิ์</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

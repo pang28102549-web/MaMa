@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สินค้าทั้งหมด | มาม่า</title>
+  <meta name="description" content="เลือกซื้อบะหมี่กึ่งสำเร็จรูปรสชาติยอดนิยม มาม่า ไวไว ยำยำ">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* สไตล์เฉพาะหน้าสินค้า (ส่วนที่ style.css กลางยังไม่มี) */
+    .nav a[aria-current="page"] { color: var(--color-red); }
+    .site-footer p { margin: 0; }
+
+    .page-title {
+      font-family: "Playfair Display", "Noto Serif Thai", Georgia, serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 400;
+    }
+
+    /* แถบปุ่มกรอง (ปุ่มถูกสร้างโดย script.js) */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-lg);
+    }
+    .filter-bar .btn {
+      width: auto;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">มาม่า</a>
+      <nav class="nav" aria-label="เมนูหลัก">
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html" aria-current="page">สินค้า</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="section__head">
+          <span class="eyebrow">Products</span>
+          <h1 class="page-title text-center title-rule">สินค้าทั้งหมด</h1>
+          <p>เลือกรสชาติที่คุณชอบ</p>
+        </div>
+
+        <!-- script.js สร้างปุ่มกรองและการ์ดสินค้าใส่สองกล่องนี้ให้เอง -->
+        <div id="filter-bar" class="filter-bar"></div>
+        <div id="product-list" class="product-grid"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© 2026 มาม่า สงวนลิขสิทธิ์</p>
+      <p><a href="index.html">กลับหน้าแรก</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
